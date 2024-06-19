@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About</title>
+</head>
+<body>
+    <h1>Tienda de funkos del polenta</h1>
+    <ul>
+        {% for item in my_list %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+</br>
+    <table>
+        {% for key, value in my_dict.items %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    {% if welcome_text %}
+        <h2>hola, bienvenido a la pagina del polenta</h2>     
+    {% else %}
+        <h2>Sorry, el cagos no es bienvenido </h2>  
+    {% endif %}
+
+</body>
+</html>

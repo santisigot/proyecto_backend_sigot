@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dragon ball</title>
+  <!-- Enlace al archivo de estilos de Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('templates/imagenes/DragonBallZ.jpg');
+      background-size: cover; 
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <!-- Navbar -->
+  <nav class="bg-red-500 p-4">
+  <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-white font-bold text-xl">Tablas de datos sobre peronajes de DragonBall</h1>
+      <ul class="flex space-x-4">
+        <li><a href="#" class="text-white hover:text-gray-200">Inicio</a></li>
+        <li><a href="#" class="text-white hover:text-gray-200">Acerca de</a></li>
+        <li><a href="#" class="text-white hover:text-gray-200">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Contenido principal -->
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-4">Datos Basicos</h1>
+    <table class="w-full border-collapse border border-blue-300">
+      <thead>
+        <tr class="bg-red-400">
+          <th class="border border-red-300 px-4 py-2">Nombre</th>
+          <th class="border border-red-300 px-4 py-2">ki</th>
+          <th class="border border-red-300 px-4 py-2">raza</th>
+          <th class="border border-red-300 px-4 py-2">años</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for dragonball in dragonballs %}
+        <tr class="bg-white">
+          <td class="border border-red-300 px-4 py-2">{{ dragonball.name }}</td>
+          <td class="border border-red-300 px-4 py-2">{{ dragonball.ki }}</td>
+          <td class="border border-red-300 px-4 py-2">{{ dragonball.raza }}</td>
+          <td class="border border-red-300 px-4 py-2">{{ dragonball.años }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-4">Saga o sagas en las que aparece</h1>
+  <table class="w-full border-collapse border border-red-300">
+    <thead>
+      <tr class="bg-red-400">
+        <th class="border border-red-300 px-4 py-2">name</th>
+        <th class="border border-red-300 px-4 py-2">saga</th>
+        <th class="border border-red-300 px-4 py-2">capitulos</th>
+        <th class="border border-red-300 px-4 py-2">villano</th>
+        <th class="border border-red-300 px-4 py-2">transformaciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for dragonballsaga in dragonballsagas %}
+      <tr class="bg-white">
+        <td class="border border-red-300 px-4 py-2">{{ dragonballsaga.name }}</td>
+        <td class="border border-red-300 px-4 py-2">{{ dragonballsaga.saga }}</td>
+        <td class="border border-red-300 px-4 py-2">{{ dragonballsaga.capitulos }}</td>
+        <td class="border border-red-300 px-4 py-2">{% if dragonballsaga.villano %}Yes{% else %}No{% endif %}</td>
+        <td class="border border-red-300 px-4 py-2">{{ dragonballsaga.transformaciones }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-4">Estado vital</h1>
+  <table class="w-full border-collapse border border-red-400">
+    <thead>
+      <tr class="bg-red-400">
+        <th class="border border-red-300 px-4 py-2">name</th>
+        <th class="border border-red-300 px-4 py-2">vivo</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for dragonballvivo in dragonballvivos %}
+      <tr class="bg-white">
+        <td class="border border-red-300 px-4 py-2">{{ dragonballvivo.name }}</td>
+        <td class="border border-red-300 px-4 py-2">{% if dragonballvivo.vivo %}Yes{% else %}No{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div> 
+</body>
+</html>
